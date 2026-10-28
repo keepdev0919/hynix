@@ -4,6 +4,8 @@ SK하이닉스 AI 해커톤 2026 2차 예선용 개인 작업 키트.
 
 ## 들어 있는 것
 
+`AGENTS.md` — 응시 환경 작업 규칙 (2차 예선 안내 PDF·운영팀 안내·Codex 공식 가이드 기준). 작업 폴더 루트에 두면 Codex가 자동으로 읽는다.
+
 `skills/` — [mattpocock/skills](https://github.com/mattpocock/skills)(MIT, commit `59db609`)에서 고른 에이전트 스킬 9개. 원본 그대로이며 라이선스는 `LICENSE`.
 
 | 단계 | 스킬 |
@@ -20,6 +22,9 @@ SK하이닉스 AI 해커톤 2026 2차 예선용 개인 작업 키트.
 ```bash
 git clone https://github.com/keepdev0919/hynix.git .hynix
 mkdir -p .agents/skills && cp -R .hynix/skills/* .agents/skills/
+cp .hynix/AGENTS.md .
 ```
+
+과제 폴더에 이미 `AGENTS.md`가 있으면 덮어쓰지 말고, 이 파일의 규칙을 기존 파일 끝에 덧붙인다.
 
 Codex에서 `$grill-me`, `$to-questionnaire`, `$to-tickets`, `$handoff` 처럼 이름으로 부른다.
