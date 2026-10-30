@@ -1,0 +1,5 @@
+interface:
+  display_name: "Situation Brief"
+  short_description: "과제 상황과 데이터를 보기 쉽게 정리"
+policy:
+  allow_implicit_invocation: false
