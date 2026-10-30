@@ -1,5 +1,0 @@
-interface:
-  display_name: "Case Research"
-  short_description: "같은 문제의 공개 사례 조사"
-policy:
-  allow_implicit_invocation: false

@@ -1,5 +1,0 @@
-interface:
-  display_name: "Mock Follow-up"
-  short_description: "후속 서술형 예상 질문 연습"
-policy:
-  allow_implicit_invocation: false
