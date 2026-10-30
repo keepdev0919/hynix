@@ -36,7 +36,7 @@ codex -s workspace-write -a never -c sandbox_workspace_write.network_access=true
 codex --dangerously-bypass-approvals-and-sandbox
 ```
 
-② 비상용: 승인과 울타리를 모두 끈다. ①로 서버가 뜨지 않을 때만 쓰고, 썼다면 결정 기록에 이유를 한 줄 남긴다.
+② 비상용: 승인과 울타리를 모두 끈다. ①로 서버가 뜨지 않을 때만 쓰고, 썼다면 PRD.md에 이유를 한 줄 남긴다.
 
 쓰기 전에:
 - 실제 응시 환경 메신저에는 Cofa Helper가 없고 과제 담당자만 있다. 담당자는 업무 배경만 답하므로 이 설정을 묻지 않는다.
