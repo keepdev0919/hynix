@@ -31,3 +31,30 @@ if [ -f AGENTS.md ]; then cat .hynix/AGENTS.md >> AGENTS.md; else cp .hynix/AGEN
 - 설치 후 확인: `ls .agents/skills`에 스킬 9개가 보이고, 새 Codex 세션의 `/skills` 목록에 나타나야 한다. 이미 열려 있던 Codex 세션은 다시 시작해야 스킬을 인식한다.
 
 Codex에서 `$grill-me`, `$to-questionnaire`, `$to-tickets`, `$handoff` 처럼 이름으로 부른다.
+
+## Codex 실행 옵션 (승인 창 줄이기)
+
+사전체험에서는 Codex가 서버를 켤 때마다 승인 창이 떴다. 샌드박스(Codex의 작업 울타리)가 서버 소켓 생성을 막았기 때문이다. 아래 명령은 **사용자가** Codex를 끄고(`/quit`) 다시 켤 때 쓴다.
+
+```bash
+codex -s workspace-write -a never -c sandbox_workspace_write.network_access=true
+```
+
+① 기본: 작업 폴더 안 수정과 네트워크(서버 켜기 포함)는 묻지 않고 하고, 울타리 밖 작업은 묻지 않고 실패로 보고한다. 울타리는 그대로 둔다.
+
+```bash
+codex --dangerously-bypass-approvals-and-sandbox
+```
+
+② 비상용: 승인과 울타리를 모두 끈다. ①로 서버가 뜨지 않을 때만 쓰고, 썼다면 결정 기록에 이유를 한 줄 남긴다.
+
+쓰기 전에:
+- 응시 환경에서 이 옵션을 바꿔도 되는지 Cofa Helper에게 먼저 묻는다. 안 된다고 하면 기본 설정 그대로 간다.
+- 실제 응시 환경에서 ①·② 모두 미확인이다(로컬 Codex 0.165 기준으로 작성, 응시 환경은 0.163).
+
+> **Codex에게:** 이 절은 사용자용이다. 너는 이 명령을 직접 실행하거나 Codex를 재시작하지 않는다. 키트를 설치한 뒤 아래를 확인해서 결과만 짧게 알려 준다.
+> - `codex --help`에 `-s`, `-a`, `--dangerously-bypass-approvals-and-sandbox` 옵션이 있는가.
+> - 플랫폼이 승인·샌드박스를 고정해 둔 설정이 있는가(`~/.codex/config.toml`, `/etc/codex/` 등). 읽기만 하고 고치지 않는다.
+> - 시험 안내·README·과제 지침에 이 설정과 부딪치는 문장이 있는가.
+>
+> 하나라도 걸리면 "이 환경에서는 ①/②를 쓰지 않는 게 좋겠다"와 그 이유를 말한다. ②를 쓸지는 사용자가 정한다.
